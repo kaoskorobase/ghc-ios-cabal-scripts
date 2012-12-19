@@ -1,0 +1,13 @@
+diff --git a/aeson.cabal b/aeson.cabal
+index 242aa67..351a420 100644
+--- a/aeson.cabal
++++ b/aeson.cabal
+@@ -99,7 +99,7 @@ library
+     Data.Aeson.Generic
+     Data.Aeson.Parser
+     Data.Aeson.Types
+-    Data.Aeson.TH
++    -- Data.Aeson.TH
+ 
+   other-modules:
+     Data.Aeson.Functions

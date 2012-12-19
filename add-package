@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+if ARGV.empty?
+  puts "Usage: #{File.basename($0)} PACKAGE"
+  exit(1)
+end
+
+package = ARGV.shift
+patch = File.expand_path(File.join(File.dirname(__FILE__), 'patches', package))
+cabal_dev_args = ARGV
+
+if File.exist?(patch)
+  dir = File.expand_path(`cabal unpack #{package}`.split(' ').last)
+  Dir.chdir(dir) { system("patch < \"#{patch}\"") }
+  system("cabal-dev", "add-source", dir, *cabal_dev_args)
+  FileUtils.rm_r(dir)
+else
+  puts "No patch for #{package}, nothing to do."
+end

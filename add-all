@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+SCRIPT_DIR = File.dirname(__FILE__)
+patches = File.expand_path(File.join(SCRIPT_DIR, 'patches'))
+
+Dir.glob(File.join(patches, '*')).each { |patch|
+  system(File.join(SCRIPT_DIR, 'add-package'), File.basename(patch), *ARGV)
+}

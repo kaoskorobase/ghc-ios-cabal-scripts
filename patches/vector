@@ -1,0 +1,13 @@
+diff --git a/Data/Vector/Fusion/Stream/Monadic.hs b/Data/Vector/Fusion/Stream/Monadic.hs
+index 51fec75..5420d9f 100644
+--- a/Data/Vector/Fusion/Stream/Monadic.hs
++++ b/Data/Vector/Fusion/Stream/Monadic.hs
+@@ -100,7 +100,7 @@ import GHC.Exts ( SpecConstrAnnotation(..) )
+ #include "vector.h"
+ 
+ data SPEC = SPEC | SPEC2
+-#if __GLASGOW_HASKELL__ >= 700
++#if __GLASGOW_HASKELL__ >= 700 && arm_HOST_ARCH != 1
+ {-# ANN type SPEC ForceSpecConstr #-}
+ #endif
+ 

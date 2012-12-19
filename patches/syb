@@ -1,0 +1,13 @@
+diff --git a/syb.cabal b/syb.cabal
+index 0aee93d..0a645c6 100644
+--- a/syb.cabal
++++ b/syb.cabal
+@@ -17,7 +17,7 @@ description:
+ 
+ category:               Generics
+ stability:              provisional
+-build-type:             Custom
++build-type:             Simple
+ cabal-version:          >= 1.6
+ 
+ extra-source-files:     tests/*.hs,

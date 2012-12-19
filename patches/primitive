@@ -1,0 +1,15 @@
+diff --git a/primitive.cabal b/primitive.cabal
+index 8c4328a..e08ce25 100644
+--- a/primitive.cabal
++++ b/primitive.cabal
+@@ -51,7 +51,7 @@ Library
+   includes: primitive-memops.h
+   c-sources: cbits/primitive-memops.c
+   cc-options: -O3 -ftree-vectorize -fomit-frame-pointer
+-  if arch(i386) || arch(x86_64) {
+-    cc-options: -msse2
+-  }
++--  if arch(i386) || arch(x86_64) {
++--    cc-options: -msse2
++--  }
+ 

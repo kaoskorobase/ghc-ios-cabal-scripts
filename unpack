@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+package = ARGV[0]
+
+dir = `cabal unpack #{package}`.split(' ').last
+Dir.chdir(dir)
+system('git init && git add . && git commit -m "Initial commit"')
