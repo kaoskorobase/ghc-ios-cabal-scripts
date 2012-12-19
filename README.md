@@ -25,3 +25,50 @@ How to add a patch for a package on hackage
     $ git commit
 
 Then send a pull request.
+
+Package build status
+--------------------
+
+<pre>
+x builds
+p builds with patch
+? unknown
+- won't build
+
+x aeson
+x async
+x attoparsec
+x attoparsec-conduit
+x bytestring
+x cereal
+x cereal-conduit
+x conduit
+x data-lens
+x directory
+x explicit-exception
+x failure
+x filepath
+x hashable
+- hmatrix
+x hosc
+x hsc3
+- hsc3-lang (hmatrix)
+? hsc3-process
+? hsc3-server
+p lifted-base
+x network
+x network-conduit
+p primitive
+x process
+x reactive-banana
+x resourcet
+x split
+x system-fileio
+x system-filepath
+x text
+x transformers
+x unix
+x unordered-containers
+x url
+p vector
+</pre>
