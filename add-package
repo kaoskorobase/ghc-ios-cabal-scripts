@@ -13,7 +13,7 @@ cabal_dev_args = ARGV
 
 if File.exist?(patch)
   dir = File.expand_path(`cabal unpack #{package}`.split(' ').last)
-  Dir.chdir(dir) { system("patch < \"#{patch}\"") }
+  Dir.chdir(dir) { system("patch -p1 < \"#{patch}\"") }
   system("cabal-dev", "add-source", dir, *cabal_dev_args)
   FileUtils.rm_r(dir)
 else
