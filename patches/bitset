@@ -1,0 +1,14 @@
+diff --git a/bitset.cabal b/bitset.cabal
+index 997b61b..d4b9c7b 100644
+--- a/bitset.cabal
++++ b/bitset.cabal
+@@ -18,7 +18,8 @@ Extra-source-files:  tests/Properties.hs
+ 
+ Library
+   Exposed-modules:     Data.BitSet
+-  Build-depends:       base >= 4.0.0 && < 5, QuickCheck >= 2 && < 3
++  Build-depends:       base >= 4.0.0 && < 5
++                       -- , QuickCheck >= 2 && < 3
+   Extensions:          ScopedTypeVariables, DeriveDataTypeable
+   Ghc-options:         -Wall -O2
+   Ghc-prof-options:    -prof -auto-all

@@ -39,6 +39,7 @@ x aeson
 x async
 x attoparsec
 x attoparsec-conduit
+p bitset
 x bytestring
 x cereal
 x cereal-conduit
@@ -56,6 +57,7 @@ x hsc3
 ? hsc3-process
 ? hsc3-server
 p lifted-base
+p ListZipper
 x network
 x network-conduit
 p primitive

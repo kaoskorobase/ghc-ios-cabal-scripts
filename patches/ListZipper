@@ -1,0 +1,50 @@
+diff --git a/Data/List/Zipper.hs b/Data/List/Zipper.hs
+index 5317098..4cbcce8 100644
+--- a/Data/List/Zipper.hs
++++ b/Data/List/Zipper.hs
+@@ -1,19 +1,19 @@
+ module Data.List.Zipper where
+ 
+ import Control.Monad (liftM2)
+-import Test.QuickCheck (Arbitrary(..), CoArbitrary(..))
++-- import Test.QuickCheck (Arbitrary(..), CoArbitrary(..))
+ import Data.Maybe (listToMaybe)
+ 
+ 
+ data Zipper a = Zip ![a] ![a] deriving (Eq,Show)
+ 
+-instance Arbitrary a => Arbitrary (Zipper a) where
+-  arbitrary = liftM2 Zip arbitrary arbitrary
+-  shrink (Zip ls rs) = [Zip ls' rs | ls' <- shrink ls]
+-                    ++ [Zip ls rs' | rs' <- shrink rs]
+-
+-instance CoArbitrary a => CoArbitrary (Zipper a) where
+-  coarbitrary (Zip ls rs) = coarbitrary rs . coarbitrary ls
++-- instance Arbitrary a => Arbitrary (Zipper a) where
++--   arbitrary = liftM2 Zip arbitrary arbitrary
++--   shrink (Zip ls rs) = [Zip ls' rs | ls' <- shrink ls]
++--                     ++ [Zip ls rs' | rs' <- shrink rs]
++-- 
++-- instance CoArbitrary a => CoArbitrary (Zipper a) where
++--   coarbitrary (Zip ls rs) = coarbitrary rs . coarbitrary ls
+ 
+ instance Functor Zipper  where
+   fmap f (Zip ls rs) = Zip (map f ls) (map f rs)
+@@ -163,4 +163,4 @@ duplicatez z@(Zip ls rs) = Zip ls' rs' where
+ extendz :: (Zipper a -> b) -> Zipper a -> Zipper b
+ extendz f z@(Zip ls rs) = Zip ls' rs' where
+     rs' = foldrz (\z' xs -> f z' : xs) [] z
+-    ls' = foldrz (\z' xs -> f (reversez $ right z') : xs) [] $ reversez z
+\ No newline at end of file
++    ls' = foldrz (\z' xs -> f (reversez $ right z') : xs) [] $ reversez z
+diff --git a/ListZipper.cabal b/ListZipper.cabal
+index 1c3fd82..a392835 100644
+--- a/ListZipper.cabal
++++ b/ListZipper.cabal
+@@ -15,4 +15,5 @@ cabal-version:   >= 1.2.1
+ 
+ library
+   exposed-modules: Data.List.Zipper
+-  build-depends:   base >= 4 && < 5, QuickCheck >= 2.1 && < 3
++  build-depends:   base >= 4 && < 5
++                   -- , QuickCheck >= 2.1 && < 3
