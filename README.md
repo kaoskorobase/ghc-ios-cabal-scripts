@@ -17,7 +17,7 @@ This will download and patch packages and add them via `add-source`. Now install
 How to add a patch for a package on hackage
 -------------------------------------------
 
-    $ unpack <PACKAGE>
+    $ path/to/ghc-ios-cabal-scripts/unpack <PACKAGE>
     $ cd <PACKAGE-VERSION>
     $ vi ...
     $ git diff > patches/<PACKAGE>
