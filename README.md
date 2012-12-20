@@ -50,7 +50,7 @@ x explicit-exception
 x failure
 x filepath
 x hashable
-- hmatrix
+- hmatrix (custom Setup.hs)
 x hosc
 x hsc3
 - hsc3-lang (hmatrix)
@@ -62,6 +62,7 @@ x network
 x network-conduit
 p primitive
 x process
+- QuickCheck (TemplateHaskell)
 x reactive-banana
 x resourcet
 x split
