@@ -54,8 +54,8 @@ x hashable
 x hosc
 x hsc3
 - hsc3-lang (hmatrix)
-? hsc3-process
-? hsc3-server
+x hsc3-process
+x hsc3-server
 p lifted-base
 p ListZipper
 x network
