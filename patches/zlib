@@ -1,0 +1,48 @@
+diff --git a/Codec/Compression/Zlib/Stream.hsc b/Codec/Compression/Zlib/Stream.hsc
+index fe851e6..c6168f4 100644
+--- a/Codec/Compression/Zlib/Stream.hsc
++++ b/Codec/Compression/Zlib/Stream.hsc
+@@ -921,7 +921,7 @@ foreign import ccall unsafe "zlib.h inflateInit2_"
+ 
+ c_inflateInit2 :: StreamState -> CInt -> IO CInt
+ c_inflateInit2 z n =
+-  withCAString #{const_str ZLIB_VERSION} $ \versionStr ->
++  withCAString "1.2.5" $ \versionStr ->
+     c_inflateInit2_ z n versionStr (#{const sizeof(z_stream)} :: CInt)
+ 
+ foreign import ccall unsafe "zlib.h inflate"
+@@ -940,7 +940,7 @@ foreign import ccall unsafe "zlib.h deflateInit2_"
+ c_deflateInit2 :: StreamState
+                -> CInt -> CInt -> CInt -> CInt -> CInt -> IO CInt
+ c_deflateInit2 z a b c d e =
+-  withCAString #{const_str ZLIB_VERSION} $ \versionStr ->
++  withCAString "1.2.5" $ \versionStr ->
+     c_deflateInit2_ z a b c d e versionStr (#{const sizeof(z_stream)} :: CInt)
+ 
+ foreign import ccall unsafe "zlib.h deflateSetDictionary"
+diff --git a/zlib.cabal b/zlib.cabal
+index f2d1f5d..ad03409 100644
+--- a/zlib.cabal
++++ b/zlib.cabal
+@@ -39,15 +39,9 @@ library
+                    bytestring >= 0.9 && < 0.12
+   includes:        zlib.h
+   ghc-options:     -Wall
+-  if !os(windows)
+-    -- Normally we use the the standard system zlib:
+-    extra-libraries: z
+-  else
+-    -- However for the benefit of users of Windows (which does not have zlib
+-    -- by default) we bundle a complete copy of the C sources of zlib-1.2.5
+-    c-sources:     cbits/adler32.c cbits/compress.c cbits/crc32.c
+-                   cbits/deflate.c cbits/infback.c
+-                   cbits/inffast.c cbits/inflate.c cbits/inftrees.c
+-                   cbits/trees.c cbits/uncompr.c cbits/zutil.c
+-    include-dirs:  cbits
+-    install-includes: zlib.h zconf.h
++  c-sources:     cbits/adler32.c cbits/compress.c cbits/crc32.c
++                 cbits/deflate.c cbits/infback.c
++                 cbits/inffast.c cbits/inflate.c cbits/inftrees.c
++                 cbits/trees.c cbits/uncompr.c cbits/zutil.c
++  include-dirs:  cbits
++  install-includes: zlib.h zconf.h
