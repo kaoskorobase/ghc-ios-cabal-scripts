@@ -74,4 +74,5 @@ x unix
 x unordered-containers
 x url
 p vector
+p zlib
 </pre>
